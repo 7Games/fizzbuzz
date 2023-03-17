@@ -1,12 +1,18 @@
 (fn fizz [n]
-	(if (= (% n 3) 0) (io.write "Fizz")))
-(fn buzz [n]
-	(if (= (% n 5) 0) (io.write "Buzz")))
-(fn fizzbuzz [n]
-	(if (and (not= (% n 3) 0) (not= (% n 5) 0)) (io.write n)))
+	(= (% n 3) 0))
 
-(for [i 1 100]
-	(fizz i)
-	(buzz i)
-	(fizzbuzz i)
-	(io.write "\n"))
+(fn buzz [n]
+	(= (% n 5) 0))
+
+(fn neither [n]
+	(and (not (= (% n 3) 0))
+	(not (= (% n 5) 0))))
+
+(fn fizzbuzz []
+	(for [i 1 100]
+		(if (fizz i) (io.write "Fizz"))
+		(if (buzz i) (io.write "Buzz"))
+		(if (neither i) (io.write i))
+		(io.write "\n")))
+
+(fizzbuzz)
