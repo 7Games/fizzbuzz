@@ -8,7 +8,7 @@
   (= (mod x 5) 0))
 
 (defun is-neither(x)
-  (and (not (is-fizz (+ i 1))) (not (is-buzz (+ i 1)))))
+  (and (not (is-fizz x)) (not (is-buzz x))))
 
 (defun fizzbuzz()
   (interactive)
